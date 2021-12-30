@@ -51,7 +51,9 @@ export function MainLayout({ children, title = "Home" }) {
               component="h1"
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <Link href={logo.path}>{logo.text}</Link>
+              <Link href={logo.path} passHref>
+                {logo.text}
+              </Link>
             </Typography>
             <Box
               sx={{
@@ -89,7 +91,9 @@ export function MainLayout({ children, title = "Home" }) {
               >
                 {pages.map((page, index) => (
                   <MenuItem key={index} onClick={handleCloseNavMenu}>
-                    <Link href={page.path}>{page.text}</Link>
+                    <Link href={page.path} passHref>
+                      {page.text}
+                    </Link>
                   </MenuItem>
                 ))}
               </Menu>
@@ -100,7 +104,9 @@ export function MainLayout({ children, title = "Home" }) {
               component="h1"
               sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
             >
-              <Link href={logo.path}>{logo.text}</Link>
+              <Link href={logo.path} passHref>
+                {logo.text}
+              </Link>
             </Typography>
             <Box
               sx={{
@@ -111,7 +117,7 @@ export function MainLayout({ children, title = "Home" }) {
               component="nav"
             >
               {pages.map((page, index) => (
-                <Link href={page.path} key={index}>
+                <Link href={page.path} key={index} passHref>
                   <Button
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: "white", display: "block" }}

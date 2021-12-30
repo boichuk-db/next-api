@@ -10,10 +10,10 @@ export default function About({ title, socials }) {
       <Typography variant="h4" component="h2">
         {title}
       </Typography>
-      <Link href={"/"}>
+      <Link href={"/"} passHref>
         <Button variant="outlined">Go back to home</Button>
       </Link>
-      <Link href={"/posts"}>
+      <Link href={"/posts"} passHref>
         <Button variant="outlined">Go back to posts</Button>
       </Link>
       <Socials socials={socials} />
@@ -22,10 +22,10 @@ export default function About({ title, socials }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const responseAbout = await fetch("http://localhost:4200/about");
+  const responseAbout = await fetch(`${process.env.SERVER_API_URL}/about`);
   const about = await responseAbout.json();
 
-  const responseSocials = await fetch("http://localhost:3000/api/socials");
+  const responseSocials = await fetch(`${process.env.API_URL}/socials`);
   const socials = await responseSocials.json();
   return {
     props: { title: about.title, socials: socials },

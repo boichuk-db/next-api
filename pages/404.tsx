@@ -8,7 +8,7 @@ export default function ErrorPage() {
       <Typography variant="h4" component="h2" color="error">
         Error Page
       </Typography>
-      <Link href={"/"}>
+      <Link href={"/"} passHref>
         <Button variant="contained">Back to safety</Button>
       </Link>
     </MainLayout>

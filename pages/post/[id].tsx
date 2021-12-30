@@ -14,7 +14,7 @@ export default function Post({ post }: PostPageProps) {
       <Typography variant="h4">{post.title}</Typography>
       <hr />
       <Typography>{post.body}</Typography>
-      <Link href={"/posts"}>
+      <Link href={"/posts"} passHref>
         <Button variant="outlined">Back to Posts</Button>
       </Link>
     </MainLayout>
@@ -34,7 +34,9 @@ export const getServerSideProps = async ({
   if (!req) {
     return { post: null };
   }
-  const response = await fetch(`http://localhost:4200/posts/${query.id}`);
+  const response = await fetch(
+    `${process.env.SERVER_API_URL}/posts/${query.id}`
+  );
   const post = await response.json();
 
   return { props: { post } };
