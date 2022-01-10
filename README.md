@@ -8,6 +8,9 @@ First, run the development server:
 npm run dev
 # or
 yarn dev
+
+# and then to start local server with api
+npm run mock
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
