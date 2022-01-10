@@ -7,7 +7,7 @@ export default function Socials({ socials }) {
     <>
       <List>
         {socials.map((social) => (
-          <Link key={social.id} href={social.path}>
+          <Link key={social.id} href={social.path} passHref>
             <ListItem>{social.title}</ListItem>
           </Link>
         ))}
